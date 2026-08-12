@@ -1,0 +1,29 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <UseWindowsForms>true</UseWindowsForms>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <LangVersion>latest</LangVersion>
+    <EnableNETAnalyzers>true</EnableNETAnalyzers>
+    <EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <Deterministic>true</Deterministic>
+    <AssemblyName>TeardownBoundaryRemover</AssemblyName>
+    <RootNamespace>TeardownBoundaryRemover</RootNamespace>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+    <PublishSingleFile>true</PublishSingleFile>
+    <SelfContained>true</SelfContained>
+    <RuntimeIdentifier>win-x64</RuntimeIdentifier>
+    <DebugType>embedded</DebugType>
+    <Version>0.5.2</Version>
+    <FileVersion>0.5.2.0</FileVersion>
+    <Authors>Teardown Boundary Remover contributors</Authors>
+    <Company>Teardown Boundary Remover contributors</Company>
+    <Product>Teardown Boundary Remover</Product>
+    <Description>Teardown map boundary inspection, backup, removal, and restoration utility.</Description>
+    <Copyright>Copyright (c) 2026 Teardown Boundary Remover contributors. All rights reserved.</Copyright>
+  </PropertyGroup>
+
+</Project>
