@@ -6,6 +6,8 @@ A Windows utility for removing supported boundary elements from Teardown maps.
 
 Download `TeardownBoundaryRemover.exe` from the [latest release](https://github.com/Capt-Speed/TeardownBoundaryRemover/releases/latest).
 
+The released EXE is self-contained. Players do not need to install .NET.
+
 ## Usage
 
 1. Run the application.
@@ -27,7 +29,7 @@ The scanner supports game maps, Steam Workshop maps, local maps, and folders add
 
 ## Build
 
-Windows 10 or 11 and the .NET 8 SDK are required.
+The .NET 8 SDK is required only to build from source.
 
 ```powershell
 build-win-x64.cmd
