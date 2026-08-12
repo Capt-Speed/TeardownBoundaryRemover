@@ -41,6 +41,3 @@ jobs:
           path: publish/win-x64/TeardownBoundaryRemover.exe
           if-no-files-found: error
           retention-days: 14
-      # Protected personal-use releases are intentionally built locally.
-      # Dotfuscator Community has separate license terms and is not silently
-      # downloaded or accepted by this public workflow.
