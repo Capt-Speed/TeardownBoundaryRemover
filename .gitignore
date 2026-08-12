@@ -1,1 +1,16 @@
-**/bin/**/obj/publish/artifacts/protect-input/protect-output/protect-map-private/protect-original.dlltools/.vs/.idea/.vscode/*.user*.suo*.zipThumbs.db.DS_Store
+**/bin/
+**/obj/
+publish/
+artifacts/
+protect-input/
+protect-output/
+protect-original.dll
+tools/
+.vs/
+.idea/
+.vscode/
+*.user
+*.suo
+*.zip
+Thumbs.db
+.DS_Store
