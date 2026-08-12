@@ -1,0 +1,46 @@
+name: build-windows
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: windows-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '8.0.x'
+      - name: Restore
+        shell: pwsh
+        run: dotnet restore src/TeardownBoundaryRemover/TeardownBoundaryRemover.csproj
+      - name: Build
+        shell: pwsh
+        run: dotnet build src/TeardownBoundaryRemover/TeardownBoundaryRemover.csproj -c Release --no-restore
+      - name: Check formatting
+        shell: pwsh
+        run: dotnet format src/TeardownBoundaryRemover/TeardownBoundaryRemover.csproj --verify-no-changes --no-restore
+      - name: Self-test
+        shell: pwsh
+        run: dotnet run --project src/TeardownBoundaryRemover/TeardownBoundaryRemover.csproj -c Release --no-build -- --self-test
+      - name: Publish standard single-file EXE
+        shell: pwsh
+        run: dotnet publish src/TeardownBoundaryRemover/TeardownBoundaryRemover.csproj -c Release -r win-x64 --self-contained true -p:PublishSingleFile=true --no-restore -o publish/win-x64
+      - uses: actions/upload-artifact@v4
+        if: github.event_name != 'pull_request'
+        with:
+          name: TeardownBoundaryRemover-win-x64
+          path: publish/win-x64/TeardownBoundaryRemover.exe
+          if-no-files-found: error
+          retention-days: 14
+      # Protected personal-use releases are intentionally built locally.
+      # Dotfuscator Community has separate license terms and is not silently
+      # downloaded or accepted by this public workflow.
